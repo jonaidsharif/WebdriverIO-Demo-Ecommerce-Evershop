@@ -15,8 +15,8 @@ class AddToCartActions {
         await browser.pause(3000);
     }
 
-    async enterProductQty() {
-        await addToCartLocators.inputQtyField(2);
+    async enterProductQty(qty) {
+        await addToCartLocators.inputQtyField(qty);
     }
 
     async clickOnAddToCartButton() {
@@ -25,6 +25,15 @@ class AddToCartActions {
 
     async clickOnViewCartButton() {
         await addToCartLocators.buttonViewCartFromModal.click();
+    }
+
+    async getSingleProductPrice() {
+        const productPrice = await addToCartLocators.priceFromProductPage.getText();
+        const grandTotalNumber = await utility.covertTextToNumber(productPrice);
+        return grandTotalNumber;
+
+        // const productPriceIntoNumber = parseFloat(productPrice.replacce(/[$,]/g, ""));
+        // return productPriceIntoNumber;
     }
 }
 

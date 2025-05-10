@@ -1,5 +1,5 @@
 class AddToCartLocators {
-    async productFromList(productName){
+    productFromList(productName){
         return $(`//a[contains(@href,'146')]/span[contains(text(),'${productName}')]`)
     }
 
@@ -22,6 +22,12 @@ class AddToCartLocators {
     get buttonViewCartFromModal(){
         return $("//a[@class='add-cart-popup-button']");
     }
+
+    get priceFromProductPage() {
+        return $("//span[@class = 'sale-price']");
+    }
 }
 
 module.exports = new AddToCartLocators();
+
+

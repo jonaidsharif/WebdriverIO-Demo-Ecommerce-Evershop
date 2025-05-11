@@ -4,6 +4,7 @@ const checkoutActions = require("../pages/checkout/checkoutActions");
 const utility = require("../Utilitys/utility");
 
 const productName = "Nike air zoom pegasus 35";
+var singleProductPrice;
 var productQty;
 
 describe("Demo evershop site product purchase journey", () => {
@@ -18,7 +19,9 @@ describe("Demo evershop site product purchase journey", () => {
         await addToCartActions.selectProductSize();
         await addToCartActions.selectColor();
         productQty = await utility.randomNumber(10, 1);
-        await addToCartActions.enterProductQty(productQty);   
+        console.log("productQty", productQty);
+        await addToCartActions.enterProductQty(productQty);
+        singleProductPrice = await addToCartActions.getSingleProductPrice();   
         await addToCartActions.clickOnAddToCartButton();    
         await addToCartActions.clickOnViewCartButton(); 
     });

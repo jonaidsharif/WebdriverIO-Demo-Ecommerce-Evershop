@@ -1,10 +1,10 @@
 const searchActions = require("..pages/search/searchActions");
 const addToCartActions = require("../pages/addToCart/addToCartActions");
 const checkoutActions = require("../pages/checkout/checkoutActions");
-
+const utility = require("../Utilitys/utility");
 
 const productName = "Nike air zoom pegasus 35";
-const productQty = 2;
+var productQty;
 
 describe("Demo evershop site product purchase journey", () => {
     it("Should able to successfully search product", async () => {
@@ -17,6 +17,7 @@ describe("Demo evershop site product purchase journey", () => {
         await addToCartActions.clickOnProductFromList(productName);
         await addToCartActions.selectProductSize();
         await addToCartActions.selectColor();
+        productQty = await utility.randomNumber(10, 1);
         await addToCartActions.enterProductQty(productQty);   
         await addToCartActions.clickOnAddToCartButton();    
         await addToCartActions.clickOnViewCartButton(); 

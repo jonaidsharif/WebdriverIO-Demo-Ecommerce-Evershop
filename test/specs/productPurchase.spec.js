@@ -1,7 +1,7 @@
 const searchActions = require("..pages/search/searchActions");
 const addToCartActions = require("../pages/addToCart/addToCartActions");
 const checkoutActions = require("../pages/checkout/checkoutActions");
-const utility = require("../Utilitys/utility");
+const utility = require("../utilities/utility");
 
 // const productName = "Nike air zoom pegasus 35";
 const productName = "";
